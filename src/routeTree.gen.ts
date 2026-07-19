@@ -9,38 +9,360 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as StewardshipRouteImport } from './routes/stewardship'
+import { Route as PlatformRouteImport } from './routes/platform'
+import { Route as PeopleRouteImport } from './routes/people'
+import { Route as IntelligenceRouteImport } from './routes/intelligence'
+import { Route as InnovationRouteImport } from './routes/innovation'
+import { Route as ImpactRouteImport } from './routes/impact'
+import { Route as HealthRouteImport } from './routes/health'
+import { Route as GovernanceRouteImport } from './routes/governance'
+import { Route as GospelCoreRouteImport } from './routes/gospel-core'
+import { Route as EducationRouteImport } from './routes/education'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PeopleIndexRouteImport } from './routes/people.index'
+import { Route as PeopleTrainingRouteImport } from './routes/people.training'
+import { Route as PeopleTestimoniesRouteImport } from './routes/people.testimonies'
+import { Route as PeoplePathwaysRouteImport } from './routes/people.pathways'
+import { Route as PeopleMilestonesRouteImport } from './routes/people.milestones'
+import { Route as PeopleMentorshipRouteImport } from './routes/people.mentorship'
+import { Route as PeopleJourneyRouteImport } from './routes/people.journey'
+import { Route as PeopleGroupsRouteImport } from './routes/people.groups'
+import { Route as PeopleCareRouteImport } from './routes/people.care'
+import { Route as PeopleAssignmentsRouteImport } from './routes/people.assignments'
 
+const StewardshipRoute = StewardshipRouteImport.update({
+  id: '/stewardship',
+  path: '/stewardship',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlatformRoute = PlatformRouteImport.update({
+  id: '/platform',
+  path: '/platform',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PeopleRoute = PeopleRouteImport.update({
+  id: '/people',
+  path: '/people',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IntelligenceRoute = IntelligenceRouteImport.update({
+  id: '/intelligence',
+  path: '/intelligence',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InnovationRoute = InnovationRouteImport.update({
+  id: '/innovation',
+  path: '/innovation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImpactRoute = ImpactRouteImport.update({
+  id: '/impact',
+  path: '/impact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HealthRoute = HealthRouteImport.update({
+  id: '/health',
+  path: '/health',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GovernanceRoute = GovernanceRouteImport.update({
+  id: '/governance',
+  path: '/governance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GospelCoreRoute = GospelCoreRouteImport.update({
+  id: '/gospel-core',
+  path: '/gospel-core',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EducationRoute = EducationRouteImport.update({
+  id: '/education',
+  path: '/education',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PeopleIndexRoute = PeopleIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => PeopleRoute,
+} as any)
+const PeopleTrainingRoute = PeopleTrainingRouteImport.update({
+  id: '/training',
+  path: '/training',
+  getParentRoute: () => PeopleRoute,
+} as any)
+const PeopleTestimoniesRoute = PeopleTestimoniesRouteImport.update({
+  id: '/testimonies',
+  path: '/testimonies',
+  getParentRoute: () => PeopleRoute,
+} as any)
+const PeoplePathwaysRoute = PeoplePathwaysRouteImport.update({
+  id: '/pathways',
+  path: '/pathways',
+  getParentRoute: () => PeopleRoute,
+} as any)
+const PeopleMilestonesRoute = PeopleMilestonesRouteImport.update({
+  id: '/milestones',
+  path: '/milestones',
+  getParentRoute: () => PeopleRoute,
+} as any)
+const PeopleMentorshipRoute = PeopleMentorshipRouteImport.update({
+  id: '/mentorship',
+  path: '/mentorship',
+  getParentRoute: () => PeopleRoute,
+} as any)
+const PeopleJourneyRoute = PeopleJourneyRouteImport.update({
+  id: '/journey',
+  path: '/journey',
+  getParentRoute: () => PeopleRoute,
+} as any)
+const PeopleGroupsRoute = PeopleGroupsRouteImport.update({
+  id: '/groups',
+  path: '/groups',
+  getParentRoute: () => PeopleRoute,
+} as any)
+const PeopleCareRoute = PeopleCareRouteImport.update({
+  id: '/care',
+  path: '/care',
+  getParentRoute: () => PeopleRoute,
+} as any)
+const PeopleAssignmentsRoute = PeopleAssignmentsRouteImport.update({
+  id: '/assignments',
+  path: '/assignments',
+  getParentRoute: () => PeopleRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/education': typeof EducationRoute
+  '/gospel-core': typeof GospelCoreRoute
+  '/governance': typeof GovernanceRoute
+  '/health': typeof HealthRoute
+  '/impact': typeof ImpactRoute
+  '/innovation': typeof InnovationRoute
+  '/intelligence': typeof IntelligenceRoute
+  '/people': typeof PeopleRouteWithChildren
+  '/platform': typeof PlatformRoute
+  '/stewardship': typeof StewardshipRoute
+  '/people/assignments': typeof PeopleAssignmentsRoute
+  '/people/care': typeof PeopleCareRoute
+  '/people/groups': typeof PeopleGroupsRoute
+  '/people/journey': typeof PeopleJourneyRoute
+  '/people/mentorship': typeof PeopleMentorshipRoute
+  '/people/milestones': typeof PeopleMilestonesRoute
+  '/people/pathways': typeof PeoplePathwaysRoute
+  '/people/testimonies': typeof PeopleTestimoniesRoute
+  '/people/training': typeof PeopleTrainingRoute
+  '/people/': typeof PeopleIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/education': typeof EducationRoute
+  '/gospel-core': typeof GospelCoreRoute
+  '/governance': typeof GovernanceRoute
+  '/health': typeof HealthRoute
+  '/impact': typeof ImpactRoute
+  '/innovation': typeof InnovationRoute
+  '/intelligence': typeof IntelligenceRoute
+  '/platform': typeof PlatformRoute
+  '/stewardship': typeof StewardshipRoute
+  '/people/assignments': typeof PeopleAssignmentsRoute
+  '/people/care': typeof PeopleCareRoute
+  '/people/groups': typeof PeopleGroupsRoute
+  '/people/journey': typeof PeopleJourneyRoute
+  '/people/mentorship': typeof PeopleMentorshipRoute
+  '/people/milestones': typeof PeopleMilestonesRoute
+  '/people/pathways': typeof PeoplePathwaysRoute
+  '/people/testimonies': typeof PeopleTestimoniesRoute
+  '/people/training': typeof PeopleTrainingRoute
+  '/people': typeof PeopleIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/education': typeof EducationRoute
+  '/gospel-core': typeof GospelCoreRoute
+  '/governance': typeof GovernanceRoute
+  '/health': typeof HealthRoute
+  '/impact': typeof ImpactRoute
+  '/innovation': typeof InnovationRoute
+  '/intelligence': typeof IntelligenceRoute
+  '/people': typeof PeopleRouteWithChildren
+  '/platform': typeof PlatformRoute
+  '/stewardship': typeof StewardshipRoute
+  '/people/assignments': typeof PeopleAssignmentsRoute
+  '/people/care': typeof PeopleCareRoute
+  '/people/groups': typeof PeopleGroupsRoute
+  '/people/journey': typeof PeopleJourneyRoute
+  '/people/mentorship': typeof PeopleMentorshipRoute
+  '/people/milestones': typeof PeopleMilestonesRoute
+  '/people/pathways': typeof PeoplePathwaysRoute
+  '/people/testimonies': typeof PeopleTestimoniesRoute
+  '/people/training': typeof PeopleTrainingRoute
+  '/people/': typeof PeopleIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/education'
+    | '/gospel-core'
+    | '/governance'
+    | '/health'
+    | '/impact'
+    | '/innovation'
+    | '/intelligence'
+    | '/people'
+    | '/platform'
+    | '/stewardship'
+    | '/people/assignments'
+    | '/people/care'
+    | '/people/groups'
+    | '/people/journey'
+    | '/people/mentorship'
+    | '/people/milestones'
+    | '/people/pathways'
+    | '/people/testimonies'
+    | '/people/training'
+    | '/people/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/education'
+    | '/gospel-core'
+    | '/governance'
+    | '/health'
+    | '/impact'
+    | '/innovation'
+    | '/intelligence'
+    | '/platform'
+    | '/stewardship'
+    | '/people/assignments'
+    | '/people/care'
+    | '/people/groups'
+    | '/people/journey'
+    | '/people/mentorship'
+    | '/people/milestones'
+    | '/people/pathways'
+    | '/people/testimonies'
+    | '/people/training'
+    | '/people'
+  id:
+    | '__root__'
+    | '/'
+    | '/education'
+    | '/gospel-core'
+    | '/governance'
+    | '/health'
+    | '/impact'
+    | '/innovation'
+    | '/intelligence'
+    | '/people'
+    | '/platform'
+    | '/stewardship'
+    | '/people/assignments'
+    | '/people/care'
+    | '/people/groups'
+    | '/people/journey'
+    | '/people/mentorship'
+    | '/people/milestones'
+    | '/people/pathways'
+    | '/people/testimonies'
+    | '/people/training'
+    | '/people/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  EducationRoute: typeof EducationRoute
+  GospelCoreRoute: typeof GospelCoreRoute
+  GovernanceRoute: typeof GovernanceRoute
+  HealthRoute: typeof HealthRoute
+  ImpactRoute: typeof ImpactRoute
+  InnovationRoute: typeof InnovationRoute
+  IntelligenceRoute: typeof IntelligenceRoute
+  PeopleRoute: typeof PeopleRouteWithChildren
+  PlatformRoute: typeof PlatformRoute
+  StewardshipRoute: typeof StewardshipRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/stewardship': {
+      id: '/stewardship'
+      path: '/stewardship'
+      fullPath: '/stewardship'
+      preLoaderRoute: typeof StewardshipRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/platform': {
+      id: '/platform'
+      path: '/platform'
+      fullPath: '/platform'
+      preLoaderRoute: typeof PlatformRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/people': {
+      id: '/people'
+      path: '/people'
+      fullPath: '/people'
+      preLoaderRoute: typeof PeopleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/intelligence': {
+      id: '/intelligence'
+      path: '/intelligence'
+      fullPath: '/intelligence'
+      preLoaderRoute: typeof IntelligenceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/innovation': {
+      id: '/innovation'
+      path: '/innovation'
+      fullPath: '/innovation'
+      preLoaderRoute: typeof InnovationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/impact': {
+      id: '/impact'
+      path: '/impact'
+      fullPath: '/impact'
+      preLoaderRoute: typeof ImpactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/health': {
+      id: '/health'
+      path: '/health'
+      fullPath: '/health'
+      preLoaderRoute: typeof HealthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/governance': {
+      id: '/governance'
+      path: '/governance'
+      fullPath: '/governance'
+      preLoaderRoute: typeof GovernanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gospel-core': {
+      id: '/gospel-core'
+      path: '/gospel-core'
+      fullPath: '/gospel-core'
+      preLoaderRoute: typeof GospelCoreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/education': {
+      id: '/education'
+      path: '/education'
+      fullPath: '/education'
+      preLoaderRoute: typeof EducationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +370,121 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/people/': {
+      id: '/people/'
+      path: '/'
+      fullPath: '/people/'
+      preLoaderRoute: typeof PeopleIndexRouteImport
+      parentRoute: typeof PeopleRoute
+    }
+    '/people/training': {
+      id: '/people/training'
+      path: '/training'
+      fullPath: '/people/training'
+      preLoaderRoute: typeof PeopleTrainingRouteImport
+      parentRoute: typeof PeopleRoute
+    }
+    '/people/testimonies': {
+      id: '/people/testimonies'
+      path: '/testimonies'
+      fullPath: '/people/testimonies'
+      preLoaderRoute: typeof PeopleTestimoniesRouteImport
+      parentRoute: typeof PeopleRoute
+    }
+    '/people/pathways': {
+      id: '/people/pathways'
+      path: '/pathways'
+      fullPath: '/people/pathways'
+      preLoaderRoute: typeof PeoplePathwaysRouteImport
+      parentRoute: typeof PeopleRoute
+    }
+    '/people/milestones': {
+      id: '/people/milestones'
+      path: '/milestones'
+      fullPath: '/people/milestones'
+      preLoaderRoute: typeof PeopleMilestonesRouteImport
+      parentRoute: typeof PeopleRoute
+    }
+    '/people/mentorship': {
+      id: '/people/mentorship'
+      path: '/mentorship'
+      fullPath: '/people/mentorship'
+      preLoaderRoute: typeof PeopleMentorshipRouteImport
+      parentRoute: typeof PeopleRoute
+    }
+    '/people/journey': {
+      id: '/people/journey'
+      path: '/journey'
+      fullPath: '/people/journey'
+      preLoaderRoute: typeof PeopleJourneyRouteImport
+      parentRoute: typeof PeopleRoute
+    }
+    '/people/groups': {
+      id: '/people/groups'
+      path: '/groups'
+      fullPath: '/people/groups'
+      preLoaderRoute: typeof PeopleGroupsRouteImport
+      parentRoute: typeof PeopleRoute
+    }
+    '/people/care': {
+      id: '/people/care'
+      path: '/care'
+      fullPath: '/people/care'
+      preLoaderRoute: typeof PeopleCareRouteImport
+      parentRoute: typeof PeopleRoute
+    }
+    '/people/assignments': {
+      id: '/people/assignments'
+      path: '/assignments'
+      fullPath: '/people/assignments'
+      preLoaderRoute: typeof PeopleAssignmentsRouteImport
+      parentRoute: typeof PeopleRoute
+    }
   }
 }
 
+interface PeopleRouteChildren {
+  PeopleAssignmentsRoute: typeof PeopleAssignmentsRoute
+  PeopleCareRoute: typeof PeopleCareRoute
+  PeopleGroupsRoute: typeof PeopleGroupsRoute
+  PeopleJourneyRoute: typeof PeopleJourneyRoute
+  PeopleMentorshipRoute: typeof PeopleMentorshipRoute
+  PeopleMilestonesRoute: typeof PeopleMilestonesRoute
+  PeoplePathwaysRoute: typeof PeoplePathwaysRoute
+  PeopleTestimoniesRoute: typeof PeopleTestimoniesRoute
+  PeopleTrainingRoute: typeof PeopleTrainingRoute
+  PeopleIndexRoute: typeof PeopleIndexRoute
+}
+
+const PeopleRouteChildren: PeopleRouteChildren = {
+  PeopleAssignmentsRoute: PeopleAssignmentsRoute,
+  PeopleCareRoute: PeopleCareRoute,
+  PeopleGroupsRoute: PeopleGroupsRoute,
+  PeopleJourneyRoute: PeopleJourneyRoute,
+  PeopleMentorshipRoute: PeopleMentorshipRoute,
+  PeopleMilestonesRoute: PeopleMilestonesRoute,
+  PeoplePathwaysRoute: PeoplePathwaysRoute,
+  PeopleTestimoniesRoute: PeopleTestimoniesRoute,
+  PeopleTrainingRoute: PeopleTrainingRoute,
+  PeopleIndexRoute: PeopleIndexRoute,
+}
+
+const PeopleRouteWithChildren =
+  PeopleRoute._addFileChildren(PeopleRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  EducationRoute: EducationRoute,
+  GospelCoreRoute: GospelCoreRoute,
+  GovernanceRoute: GovernanceRoute,
+  HealthRoute: HealthRoute,
+  ImpactRoute: ImpactRoute,
+  InnovationRoute: InnovationRoute,
+  IntelligenceRoute: IntelligenceRoute,
+  PeopleRoute: PeopleRouteWithChildren,
+  PlatformRoute: PlatformRoute,
+  StewardshipRoute: StewardshipRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
