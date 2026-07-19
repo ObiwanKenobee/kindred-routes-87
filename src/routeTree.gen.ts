@@ -9,38 +9,80 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as PeopleRouteImport } from './routes/people'
+import { Route as GospelCoreRouteImport } from './routes/gospel-core'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PeopleIndexRouteImport } from './routes/people.index'
 
+const PeopleRoute = PeopleRouteImport.update({
+  id: '/people',
+  path: '/people',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GospelCoreRoute = GospelCoreRouteImport.update({
+  id: '/gospel-core',
+  path: '/gospel-core',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PeopleIndexRoute = PeopleIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => PeopleRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/gospel-core': typeof GospelCoreRoute
+  '/people': typeof PeopleRouteWithChildren
+  '/people/': typeof PeopleIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/gospel-core': typeof GospelCoreRoute
+  '/people': typeof PeopleIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/gospel-core': typeof GospelCoreRoute
+  '/people': typeof PeopleRouteWithChildren
+  '/people/': typeof PeopleIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/gospel-core' | '/people' | '/people/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/gospel-core' | '/people'
+  id: '__root__' | '/' | '/gospel-core' | '/people' | '/people/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  GospelCoreRoute: typeof GospelCoreRoute
+  PeopleRoute: typeof PeopleRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/people': {
+      id: '/people'
+      path: '/people'
+      fullPath: '/people'
+      preLoaderRoute: typeof PeopleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gospel-core': {
+      id: '/gospel-core'
+      path: '/gospel-core'
+      fullPath: '/gospel-core'
+      preLoaderRoute: typeof GospelCoreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +90,31 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/people/': {
+      id: '/people/'
+      path: '/'
+      fullPath: '/people/'
+      preLoaderRoute: typeof PeopleIndexRouteImport
+      parentRoute: typeof PeopleRoute
+    }
   }
 }
 
+interface PeopleRouteChildren {
+  PeopleIndexRoute: typeof PeopleIndexRoute
+}
+
+const PeopleRouteChildren: PeopleRouteChildren = {
+  PeopleIndexRoute: PeopleIndexRoute,
+}
+
+const PeopleRouteWithChildren =
+  PeopleRoute._addFileChildren(PeopleRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  GospelCoreRoute: GospelCoreRoute,
+  PeopleRoute: PeopleRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
