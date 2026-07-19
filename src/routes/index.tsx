@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
-  head: () => ({ meta: [{ title: "Overview — AEON GENESIS OS" }] }),
+  head: () => ({ meta: [{ title: "AEON GENESIS OS" }] }),
   component: OverviewPage,
 });
 

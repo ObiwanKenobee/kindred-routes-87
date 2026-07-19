@@ -77,12 +77,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "AEON GENESIS OS — The Gospel Economy Operating System" },
+      { title: "AEON GENESIS OS" },
       { name: "description", content: "Renaissance Systems Architecture uniting Faith, Innovation, Impact and Eternity across every sphere of society." },
       { property: "og:title", content: "AEON GENESIS OS" },
-      { property: "og:description", content: "The Gospel Economy Operating System" },
+      { property: "og:description", content: "Renaissance Systems Architecture uniting Faith, Innovation, Impact and Eternity across every sphere of society." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "AEON GENESIS OS" },
+      { name: "twitter:description", content: "Renaissance Systems Architecture uniting Faith, Innovation, Impact and Eternity across every sphere of society." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/b3ad60b7-1d40-4fa5-b050-a6cf88761717" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/b3ad60b7-1d40-4fa5-b050-a6cf88761717" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
