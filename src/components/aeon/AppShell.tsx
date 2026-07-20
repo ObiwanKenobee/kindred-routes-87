@@ -2,7 +2,8 @@ import type { ReactNode } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import {
   Home, BookOpen, Users, GraduationCap, Lightbulb, Heart, Leaf, Globe2,
-  ShieldCheck, Cpu, Search, Bell, Settings, Sparkles,
+  ShieldCheck, Cpu, Search, Bell, Settings, Sparkles, Bot, Server, Lock,
+  Handshake, Wallet, Crown,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -10,14 +11,19 @@ const NAV = [
   { to: "/", label: "Overview", icon: Home },
   { to: "/gospel-core", label: "Gospel Core", icon: BookOpen },
   { to: "/people", label: "People & Discipleship", icon: Users },
-  { to: "/education", label: "Education & Learning", icon: GraduationCap },
+  { to: "/education", label: "Education", icon: GraduationCap },
   { to: "/innovation", label: "Innovation", icon: Lightbulb },
-  { to: "/platform", label: "Platform", icon: Cpu },
-  { to: "/intelligence", label: "Intelligence", icon: Sparkles },
   { to: "/health", label: "Health & Wellbeing", icon: Heart },
-  { to: "/stewardship", label: "Stewardship & Creation", icon: Leaf },
-  { to: "/impact", label: "Impact", icon: Globe2 },
-  { to: "/governance", label: "Governance", icon: ShieldCheck },
+  { to: "/stewardship", label: "Stewardship", icon: Leaf },
+  { to: "/impact", label: "Global Impact", icon: Globe2 },
+  { to: "/intelligence", label: "Data & Intelligence", icon: Sparkles },
+  { to: "/ai-automation", label: "AI & Automation", icon: Bot },
+  { to: "/platform", label: "Platform", icon: Cpu },
+  { to: "/infrastructure", label: "Infrastructure", icon: Server },
+  { to: "/security", label: "Security & Trust", icon: Lock },
+  { to: "/partners", label: "Partners", icon: Handshake },
+  { to: "/funding", label: "Funding", icon: Wallet },
+  { to: "/governance", label: "Governance", icon: Crown },
 ] as const;
 
 export function AppShell({
