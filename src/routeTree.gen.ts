@@ -10,15 +10,20 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as StewardshipRouteImport } from './routes/stewardship'
+import { Route as SecurityRouteImport } from './routes/security'
 import { Route as PlatformRouteImport } from './routes/platform'
 import { Route as PeopleRouteImport } from './routes/people'
+import { Route as PartnersRouteImport } from './routes/partners'
 import { Route as IntelligenceRouteImport } from './routes/intelligence'
 import { Route as InnovationRouteImport } from './routes/innovation'
+import { Route as InfrastructureRouteImport } from './routes/infrastructure'
 import { Route as ImpactRouteImport } from './routes/impact'
 import { Route as HealthRouteImport } from './routes/health'
 import { Route as GovernanceRouteImport } from './routes/governance'
 import { Route as GospelCoreRouteImport } from './routes/gospel-core'
+import { Route as FundingRouteImport } from './routes/funding'
 import { Route as EducationRouteImport } from './routes/education'
+import { Route as AiAutomationRouteImport } from './routes/ai-automation'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PeopleIndexRouteImport } from './routes/people.index'
 import { Route as PeopleTrainingRouteImport } from './routes/people.training'
@@ -36,6 +41,11 @@ const StewardshipRoute = StewardshipRouteImport.update({
   path: '/stewardship',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SecurityRoute = SecurityRouteImport.update({
+  id: '/security',
+  path: '/security',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PlatformRoute = PlatformRouteImport.update({
   id: '/platform',
   path: '/platform',
@@ -46,6 +56,11 @@ const PeopleRoute = PeopleRouteImport.update({
   path: '/people',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PartnersRoute = PartnersRouteImport.update({
+  id: '/partners',
+  path: '/partners',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IntelligenceRoute = IntelligenceRouteImport.update({
   id: '/intelligence',
   path: '/intelligence',
@@ -54,6 +69,11 @@ const IntelligenceRoute = IntelligenceRouteImport.update({
 const InnovationRoute = InnovationRouteImport.update({
   id: '/innovation',
   path: '/innovation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InfrastructureRoute = InfrastructureRouteImport.update({
+  id: '/infrastructure',
+  path: '/infrastructure',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ImpactRoute = ImpactRouteImport.update({
@@ -76,9 +96,19 @@ const GospelCoreRoute = GospelCoreRouteImport.update({
   path: '/gospel-core',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FundingRoute = FundingRouteImport.update({
+  id: '/funding',
+  path: '/funding',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EducationRoute = EducationRouteImport.update({
   id: '/education',
   path: '/education',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiAutomationRoute = AiAutomationRouteImport.update({
+  id: '/ai-automation',
+  path: '/ai-automation',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -139,15 +169,20 @@ const PeopleAssignmentsRoute = PeopleAssignmentsRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/ai-automation': typeof AiAutomationRoute
   '/education': typeof EducationRoute
+  '/funding': typeof FundingRoute
   '/gospel-core': typeof GospelCoreRoute
   '/governance': typeof GovernanceRoute
   '/health': typeof HealthRoute
   '/impact': typeof ImpactRoute
+  '/infrastructure': typeof InfrastructureRoute
   '/innovation': typeof InnovationRoute
   '/intelligence': typeof IntelligenceRoute
+  '/partners': typeof PartnersRoute
   '/people': typeof PeopleRouteWithChildren
   '/platform': typeof PlatformRoute
+  '/security': typeof SecurityRoute
   '/stewardship': typeof StewardshipRoute
   '/people/assignments': typeof PeopleAssignmentsRoute
   '/people/care': typeof PeopleCareRoute
@@ -162,14 +197,19 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/ai-automation': typeof AiAutomationRoute
   '/education': typeof EducationRoute
+  '/funding': typeof FundingRoute
   '/gospel-core': typeof GospelCoreRoute
   '/governance': typeof GovernanceRoute
   '/health': typeof HealthRoute
   '/impact': typeof ImpactRoute
+  '/infrastructure': typeof InfrastructureRoute
   '/innovation': typeof InnovationRoute
   '/intelligence': typeof IntelligenceRoute
+  '/partners': typeof PartnersRoute
   '/platform': typeof PlatformRoute
+  '/security': typeof SecurityRoute
   '/stewardship': typeof StewardshipRoute
   '/people/assignments': typeof PeopleAssignmentsRoute
   '/people/care': typeof PeopleCareRoute
@@ -185,15 +225,20 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/ai-automation': typeof AiAutomationRoute
   '/education': typeof EducationRoute
+  '/funding': typeof FundingRoute
   '/gospel-core': typeof GospelCoreRoute
   '/governance': typeof GovernanceRoute
   '/health': typeof HealthRoute
   '/impact': typeof ImpactRoute
+  '/infrastructure': typeof InfrastructureRoute
   '/innovation': typeof InnovationRoute
   '/intelligence': typeof IntelligenceRoute
+  '/partners': typeof PartnersRoute
   '/people': typeof PeopleRouteWithChildren
   '/platform': typeof PlatformRoute
+  '/security': typeof SecurityRoute
   '/stewardship': typeof StewardshipRoute
   '/people/assignments': typeof PeopleAssignmentsRoute
   '/people/care': typeof PeopleCareRoute
@@ -210,15 +255,20 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/ai-automation'
     | '/education'
+    | '/funding'
     | '/gospel-core'
     | '/governance'
     | '/health'
     | '/impact'
+    | '/infrastructure'
     | '/innovation'
     | '/intelligence'
+    | '/partners'
     | '/people'
     | '/platform'
+    | '/security'
     | '/stewardship'
     | '/people/assignments'
     | '/people/care'
@@ -233,14 +283,19 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/ai-automation'
     | '/education'
+    | '/funding'
     | '/gospel-core'
     | '/governance'
     | '/health'
     | '/impact'
+    | '/infrastructure'
     | '/innovation'
     | '/intelligence'
+    | '/partners'
     | '/platform'
+    | '/security'
     | '/stewardship'
     | '/people/assignments'
     | '/people/care'
@@ -255,15 +310,20 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/ai-automation'
     | '/education'
+    | '/funding'
     | '/gospel-core'
     | '/governance'
     | '/health'
     | '/impact'
+    | '/infrastructure'
     | '/innovation'
     | '/intelligence'
+    | '/partners'
     | '/people'
     | '/platform'
+    | '/security'
     | '/stewardship'
     | '/people/assignments'
     | '/people/care'
@@ -279,15 +339,20 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AiAutomationRoute: typeof AiAutomationRoute
   EducationRoute: typeof EducationRoute
+  FundingRoute: typeof FundingRoute
   GospelCoreRoute: typeof GospelCoreRoute
   GovernanceRoute: typeof GovernanceRoute
   HealthRoute: typeof HealthRoute
   ImpactRoute: typeof ImpactRoute
+  InfrastructureRoute: typeof InfrastructureRoute
   InnovationRoute: typeof InnovationRoute
   IntelligenceRoute: typeof IntelligenceRoute
+  PartnersRoute: typeof PartnersRoute
   PeopleRoute: typeof PeopleRouteWithChildren
   PlatformRoute: typeof PlatformRoute
+  SecurityRoute: typeof SecurityRoute
   StewardshipRoute: typeof StewardshipRoute
 }
 
@@ -298,6 +363,13 @@ declare module '@tanstack/react-router' {
       path: '/stewardship'
       fullPath: '/stewardship'
       preLoaderRoute: typeof StewardshipRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/security': {
+      id: '/security'
+      path: '/security'
+      fullPath: '/security'
+      preLoaderRoute: typeof SecurityRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/platform': {
@@ -314,6 +386,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PeopleRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/partners': {
+      id: '/partners'
+      path: '/partners'
+      fullPath: '/partners'
+      preLoaderRoute: typeof PartnersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/intelligence': {
       id: '/intelligence'
       path: '/intelligence'
@@ -326,6 +405,13 @@ declare module '@tanstack/react-router' {
       path: '/innovation'
       fullPath: '/innovation'
       preLoaderRoute: typeof InnovationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/infrastructure': {
+      id: '/infrastructure'
+      path: '/infrastructure'
+      fullPath: '/infrastructure'
+      preLoaderRoute: typeof InfrastructureRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/impact': {
@@ -356,11 +442,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GospelCoreRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/funding': {
+      id: '/funding'
+      path: '/funding'
+      fullPath: '/funding'
+      preLoaderRoute: typeof FundingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/education': {
       id: '/education'
       path: '/education'
       fullPath: '/education'
       preLoaderRoute: typeof EducationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-automation': {
+      id: '/ai-automation'
+      path: '/ai-automation'
+      fullPath: '/ai-automation'
+      preLoaderRoute: typeof AiAutomationRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -474,15 +574,20 @@ const PeopleRouteWithChildren =
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AiAutomationRoute: AiAutomationRoute,
   EducationRoute: EducationRoute,
+  FundingRoute: FundingRoute,
   GospelCoreRoute: GospelCoreRoute,
   GovernanceRoute: GovernanceRoute,
   HealthRoute: HealthRoute,
   ImpactRoute: ImpactRoute,
+  InfrastructureRoute: InfrastructureRoute,
   InnovationRoute: InnovationRoute,
   IntelligenceRoute: IntelligenceRoute,
+  PartnersRoute: PartnersRoute,
   PeopleRoute: PeopleRouteWithChildren,
   PlatformRoute: PlatformRoute,
+  SecurityRoute: SecurityRoute,
   StewardshipRoute: StewardshipRoute,
 }
 export const routeTree = rootRouteImport
