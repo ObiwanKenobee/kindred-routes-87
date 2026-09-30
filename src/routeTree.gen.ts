@@ -24,6 +24,7 @@ import { Route as GospelCoreRouteImport } from './routes/gospel-core'
 import { Route as FundingRouteImport } from './routes/funding'
 import { Route as EducationRouteImport } from './routes/education'
 import { Route as AiAutomationRouteImport } from './routes/ai-automation'
+import { Route as SplatRouteImport } from './routes/$'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PeopleIndexRouteImport } from './routes/people.index'
 import { Route as PeopleTrainingRouteImport } from './routes/people.training'
@@ -111,6 +112,11 @@ const AiAutomationRoute = AiAutomationRouteImport.update({
   path: '/ai-automation',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SplatRoute = SplatRouteImport.update({
+  id: '/$',
+  path: '/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -169,6 +175,7 @@ const PeopleAssignmentsRoute = PeopleAssignmentsRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/$': typeof SplatRoute
   '/ai-automation': typeof AiAutomationRoute
   '/education': typeof EducationRoute
   '/funding': typeof FundingRoute
@@ -197,6 +204,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/$': typeof SplatRoute
   '/ai-automation': typeof AiAutomationRoute
   '/education': typeof EducationRoute
   '/funding': typeof FundingRoute
@@ -225,6 +233,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/$': typeof SplatRoute
   '/ai-automation': typeof AiAutomationRoute
   '/education': typeof EducationRoute
   '/funding': typeof FundingRoute
@@ -255,6 +264,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/$'
     | '/ai-automation'
     | '/education'
     | '/funding'
@@ -283,6 +293,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/$'
     | '/ai-automation'
     | '/education'
     | '/funding'
@@ -310,6 +321,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/$'
     | '/ai-automation'
     | '/education'
     | '/funding'
@@ -339,6 +351,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  SplatRoute: typeof SplatRoute
   AiAutomationRoute: typeof AiAutomationRoute
   EducationRoute: typeof EducationRoute
   FundingRoute: typeof FundingRoute
@@ -463,6 +476,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AiAutomationRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/$': {
+      id: '/$'
+      path: '/$'
+      fullPath: '/$'
+      preLoaderRoute: typeof SplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -574,6 +594,7 @@ const PeopleRouteWithChildren =
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  SplatRoute: SplatRoute,
   AiAutomationRoute: AiAutomationRoute,
   EducationRoute: EducationRoute,
   FundingRoute: FundingRoute,
